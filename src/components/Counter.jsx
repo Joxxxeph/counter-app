@@ -21,7 +21,7 @@ const Counter = () => {
           </div>
         </section>
         <div></div>
-        <section className="lg:absolute lg:right-[6rem] sm:flex sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[650px] lg:h-[650px] sm:w-[300px] sm:m-auto lg:bottom-[1.75rem]">
+        <section className="lg:absolute lg:right-0 lg:bottom-[1rem] xl:right-[6rem] sm:flex sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[650px] lg:h-[650px] sm:w-[300px] sm:m-auto xl:bottom-[1.75rem]">
           <img className="lg:w-[650px] md:w-[400px]" src="./imagen.png" alt="" />
         </section>
       </article>
