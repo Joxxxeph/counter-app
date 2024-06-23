@@ -1,8 +1,31 @@
 import Aos from "aos"
+import JSConfetti from "js-confetti";
 import "aos/dist/aos.css";
+import { useState } from "react";
 import { useEffect } from "react";
 
 const Counter = () => {
+  const jsConfetti = new JSConfetti()
+  const [counter, setCounter] = useState(0)
+  const [counter2, setCounter2] = useState(0)
+
+  const handlerClick1 = () => {
+    setCounter(counter + 1)
+    
+    jsConfetti.addConfetti({
+      confettiRadius: 4,
+      confettiNumber: 200,
+    })
+    
+  }
+  
+  const handlerClick2 = () => {
+    setCounter2(counter2 + 1)
+    jsConfetti.addConfetti({
+      confettiRadius: 4,
+      confettiNumber: 200,
+    })
+  }
 
   useEffect(() => {
     Aos.init({ duration: 1000 });
@@ -20,12 +43,12 @@ const Counter = () => {
           </div>
           <div className="flex flex-col px-4 sm:px-0 sm:flex-row gap-4">
             <div data-aos="zoom-in-up" data-aos-duration="500" className="bg-[#ebe5e5] shadow-lg flex flex-col gap-4 rounded-3xl items-center px-[1rem] py-[2rem]">
-              <h1 className="text-[#3a3a3a] font-black text-5xl">00000</h1>
-              <button className="bg-[#d96d24]  underline text-sm text-white py-[.2rem] px-[2rem] rounded-full">Con amigo actual</button>
+              <h1 className="count1 text-[#3a3a3a] font-black text-5xl">{counter}</h1>
+              <button onClick={handlerClick1} className="bg-[#d96d24] hover:bg-[#e0874b] active:scale-[.98] border-2 border-transparent hover:border-2 hover:border-[#d96d24] transition-colors underline text-sm text-white py-[.2rem] px-[2rem] rounded-full">Con amigo actual</button>
             </div>
             <div data-aos="zoom-in-up" data-aos-duration="900" className="bg-[#ebe5e5] shadow-lg flex flex-col gap-4 rounded-3xl items-center px-[1rem] py-[2rem]">
-              <h1 className="text-[#3a3a3a] font-black text-5xl">00000</h1>
-              <button className="bg-[#6869c5]  underline text-sm text-white py-[.2rem] px-[2rem] rounded-full">Con nueva persona</button>
+              <h1 className=" text-[#3a3a3a] font-black text-5xl">{counter2}</h1>
+              <button onClick={handlerClick2} className="bg-[#6869c5] hover:bg-[#8182c0] active:scale-[.98] border-2 border-transparent hover:border-2 hover:border-[#6869c5] transition-colors underline text-sm text-white py-[.2rem] px-[2rem] rounded-full">Con nueva persona</button>
             </div>
           </div>
         </section>
